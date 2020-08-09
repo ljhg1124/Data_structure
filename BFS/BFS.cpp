@@ -7,7 +7,6 @@ using namespace std;
 
 #define NUM 9
 
-int number = NUM;
 bool chk[NUM];
 
 vector<int> node_Tree[NUM];

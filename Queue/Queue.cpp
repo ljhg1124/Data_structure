@@ -1,6 +1,6 @@
 #include "Queue.h"
 
-// Qµ¥ÀÌÅÍ ¿À¹öÇÃ·Î¿ì È®ÀÎ ¿©ºÎ
+// Që°ì´í„° ì˜¤ë²„í”Œë¡œìš° í™•ì¸ ì—¬ë¶€
 bool FullCheckQ(Queue *q)
 {
 	if( q->GetSize() >= QUEUE_MAXSIZE ) return true;
@@ -48,12 +48,12 @@ void Queue::AddQueue(unsigned char data)
 {
 	if( !FullCheckQ(this) )
 	{
-		this->data[this->head] = data;		// µ¥ÀÌÅÍ ÀúÀå
-		this->size++;						// µ¥ÀÌÅÍ Áõ°¡·Î ÀÎÇÑ »çÀÌÁî Áõ°¡.
+		this->data[this->head] = data;		// ë°ì´í„° ì €ìž¥
+		this->size++;						// ë°ì´í„° ì¦ê°€ë¡œ ì¸í•œ ì‚¬ì´ì¦ˆ ì¦ê°€.
 		
 		
-		// ¹è¿­ ³¡ºÎºÐ ¿¹¿ÜÃ³¸®
-		this->head = ++this->head % QUEUE_MAXSIZE; // ¹è¿­ ¸¶Áö¸·¿¡ µµ´ÞÇÏ¸é head¸¦ ´Ù½Ã ¸Ç¾ÕÀ¸·Î ÀÌµ¿.
+		// ë°°ì—´ ëë¶€ë¶„ ì˜ˆì™¸ì²˜ë¦¬
+		this->head = ++this->head % QUEUE_MAXSIZE; // ë°°ì—´ ë§ˆì§€ë§‰ì— ë„ë‹¬í•˜ë©´ headë¥¼ ë‹¤ì‹œ ë§¨ì•žìœ¼ë¡œ ì´ë™.
 	}
 }
 
@@ -63,14 +63,14 @@ unsigned char Queue::GetQueue()
 	
 	if( this->isQueue() )
 	{
-		data = this->data[this->tail];		// µ¥ÀÌÅÍ ÇØÁ¦ ÈÄ Tail Áõ°¡.
-		this->data[this->tail] = 0;			// µ¥ÀÌÅÍ ³Ñ±ä ÈÄ 0Ã³¸®
-		this->size--;						// µ¥ÀÌÅÍ ÇØÁ¦·Î ÀÎÇÑ »çÀÌÁî °¨¼Ò.	
+		data = this->data[this->tail];		// ë°ì´í„° í•´ì œ í›„ Tail ì¦ê°€.
+		this->data[this->tail] = 0;			// ë°ì´í„° ë„˜ê¸´ í›„ 0ì²˜ë¦¬
+		this->size--;						// ë°ì´í„° í•´ì œë¡œ ì¸í•œ ì‚¬ì´ì¦ˆ ê°ì†Œ.	
 
-		// ¹è¿­ ³¡ºÎºÐ ¿¹¿Ü Ã³¸®
-		this->tail = ++this->tail % QUEUE_MAXSIZE;		// ¹è¿­ ¸¶Áö¸·¿¡ µµ´Þ½Ã tailÀ» ´Ù½Ã ¸Ç¾ÕÀ¸·Î ÀÌµ¿.
+		// ë°°ì—´ ëë¶€ë¶„ ì˜ˆì™¸ ì²˜ë¦¬
+		this->tail = ++this->tail % QUEUE_MAXSIZE;		// ë°°ì—´ ë§ˆì§€ë§‰ì— ë„ë‹¬ì‹œ tailì„ ë‹¤ì‹œ ë§¨ì•žìœ¼ë¡œ ì´ë™.
 
-		return data;					// µ¥ÀÌÅÍ ¸®ÅÏ
+		return data;					// ë°ì´í„° ë¦¬í„´
 	}
 
 	return -1;
@@ -79,10 +79,10 @@ void Queue::DelQueue()
 {
 	if( this->isQueue() )
 	{
-		this->data[this->tail] = 0;		// µ¥ÀÌÅÍ ÇØÁ¦ ÈÄ Tail Áõ°¡.
-		this->size--;						// µ¥ÀÌÅÍ ÇØÁ¦·Î ÀÎÇÑ »çÀÌÁî °¨¼Ò.	
+		this->data[this->tail] = 0;		// ë°ì´í„° í•´ì œ í›„ Tail ì¦ê°€.
+		this->size--;						// ë°ì´í„° í•´ì œë¡œ ì¸í•œ ì‚¬ì´ì¦ˆ ê°ì†Œ.	
 
-		// ¹è¿­ ³¡ºÎºÐ ¿¹¿Ü Ã³¸®
-		this->tail = ++this->tail % QUEUE_MAXSIZE;		// ¹è¿­ ¸¶Áö¸·¿¡ µµ´Þ½Ã tailÀ» ´Ù½Ã ¸Ç¾ÕÀ¸·Î ÀÌµ¿.
+		// ë°°ì—´ ëë¶€ë¶„ ì˜ˆì™¸ ì²˜ë¦¬
+		this->tail = ++this->tail % QUEUE_MAXSIZE;		// ë°°ì—´ ë§ˆì§€ë§‰ì— ë„ë‹¬ì‹œ tailì„ ë‹¤ì‹œ ë§¨ì•žìœ¼ë¡œ ì´ë™.
 	}
 }
